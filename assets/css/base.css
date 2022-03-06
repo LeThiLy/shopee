@@ -1,0 +1,321 @@
+/* Cấu hình chung */
+
+:root {
+    --primery-color: #ee4d2d;
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: rgb(78, 78, 78);
+    --border-color: #dbdbdb;
+    --star-gold-color: #FFCE3E;
+
+    --header-height: 120px;
+    --navbar-height: 34px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height))
+}
+
+* {
+    /* Thừa kế những thẻ chứa nó */
+    box-sizing: inherit; 
+}
+
+html {
+    /* Quy đổi rem  */
+    font-size: 62.5%;
+    /* 1.6rem = 16px */
+    line-height: 1.6rem;
+    box-sizing: border-box;
+    /* sans-serif: tập hợp những chữ không có chân -> trong lúc chưa tải về chữ Roboto thì sử dụng một kiểu chữ của sans-serif */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Responsive */
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    /* Căn giữa */
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+/* Test */
+.grid__column-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+
+.grid__column-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+
+.grid__column-10 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3334%;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+/* Modal layout */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    animation: fadeIn linear 0.1s;
+}
+
+/* Kế thừa thẻ cha chứa nó */
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal__body {
+    --growth-from: 0.7;
+    --growth-to: 1;
+    /* Căn giữa khi sử dụng display: flex */
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    animation: growth linear 0.1s;
+}
+
+/* Authen modal */
+
+.auth-form {
+    width: 484px;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    /* khi con vượt quá cha thì làm gì, hidden: ẩn đi */
+    overflow: hidden;
+}
+
+.auth-form__container {
+    padding: 0 32px;
+}
+
+.auth-form__header {
+    display: flex;
+    align-items: center; /*Căn giữa*/
+    justify-content: space-between;
+    padding: 0 12px;
+    margin-top: 10px;
+}
+
+.auth-form__heading {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.auth-form__switch-btn {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--primery-color);
+    cursor: pointer;
+}
+
+.auth-form__input {
+    width: 100%;
+    height: 40px;
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    outline: none; /*Đường viền sáng khi click của input*/
+}
+
+/* khi click chuột vào input thì border đổi màu */
+.auth-form__input:focus {
+    border-color: #888888;
+}
+
+.auth-form__aside {
+    margin-top: 18px;
+}
+
+.auth-form__policy-text {
+    width: 100%;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    text-align: center;
+    padding: 0 12px;
+}
+
+.auth-form__policy-link {
+    color: var(--primery-color);
+    text-decoration: none;
+}
+
+.auth-form__controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 80px;
+}
+
+.auth-form__controls--back {
+    margin-right: 8px;
+}
+
+.auth-form__socials {
+    background-color: #f5f5f5;
+    padding: 16px 36px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 22px;
+}
+
+.auth-form__socials-icon {
+    font-size: 1.8rem;
+}
+
+.auth-form__socials--facebook {
+    background-color: #3a5a98;
+    color: var(--white-color);
+    margin-right: 8px;
+}
+
+.auth-form__socials--facebook 
+.auth-form__socials-icon {
+    color: var(--white-color);
+}
+
+.auth-form__socials-title {
+    margin: 0 34px;
+}
+
+.auth-form__socials--google {
+    background-color: var(--white-color);
+    color: #666666;
+}
+
+.auth-form__socials-titleDangNhap {
+    margin: 0 24px;
+}
+
+.auth-form__help {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-form__help-link {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #939393;
+}
+
+.auth-forn__help-separate {
+    display: block;
+    height: 22px;
+    margin: -5px 16px 0;
+    border-left: 1px solid #eaeaea;
+}
+
+.auth-form__help-forgot {
+    color: var(--primery-color);
+}
+
+/* Selection */
+.select-input {
+    position: relative;
+    min-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select-input__lable {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.select-input__icon {
+    font-size: 1.4rem;
+    color: rgb(131, 131, 131);
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+}
+
+.select-input:hover .select-input__list{
+    display: block;
+}
+
+
+.select-input__list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 26px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    padding: 10px 16px;
+    list-style: none;
+    display: none;
+    z-index: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Muốn padding thẻ a được phải có display: block */
+.select-input__link {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 6px 0;
+}
+
+.select-input__link:hover {
+    color: var(--primery-color);
+}
+
+.select-input__list::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    top: -8px;
+    left: 0;
+    position: absolute;
+}
+
